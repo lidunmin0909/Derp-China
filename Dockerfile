@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-LABEL org.opencontainers.image.source https://github.com/tijjjy/Tailscale-DERP-Docker
-
 #Install Tailscale and requirements
 RUN apk add curl iptables
 
@@ -17,8 +15,7 @@ COPY init.sh /init.sh
 RUN chmod +x /init.sh
 
 #Derper Web Ports
-EXPOSE 80
-EXPOSE 443/tcp
+EXPOSE 12345/tcp
 #STUN
 EXPOSE 3478/udp
 
