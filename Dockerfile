@@ -15,7 +15,8 @@ COPY init.sh /init.sh
 RUN chmod +x /init.sh
 
 #Derper Web Ports
-EXPOSE 12345/tcp
+EXPOSE 80/tcp
+EXPOSE 443/tcp
 #STUN
 EXPOSE 3478/udp
 
