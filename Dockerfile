@@ -1,5 +1,6 @@
 FROM alpine:latest
-
+#Add a goproxy
+ENV GOPROXY "https://goproxy.cn"
 #Install Tailscale and requirements
 RUN apk add curl iptables
 
