@@ -21,7 +21,7 @@ services:
          - TAILSCALE_DERP_HTTP_PORT=${TAILSCALE_DERP_HTTP_PORT}
          - TAILSCALE_AUTH_KEY=${TAILSCALE_AUTH_KEY}
        ports:
-         - 12345:12345/tcp
+         - 127.0.0.1:12345:12345/tcp
          - 3478:3478/udp
          #Uncomment only if you aren't running tailscaled on the host system otherwise it will error
          #- 41641:41641/udp
