@@ -107,4 +107,4 @@ server {
 ```
 这里就结束了，最后使用 tailscale 命令行通过 `tailscale ping` 和 `tailscale status` 检查验证一下。
 # 致谢
-我是基于 @tijjjy 的 https://github.com/tijjjy/Tailscale-DERP-Docker 修改的，他在博客 [Self Host Tailscale Derp Server](https://tijjjy.me/2023-01-22/Self-Host-Tailscale-Derp-Server) 给大家详细 workthrough 了，建议阅读一下，非常容易理解。
+我是基于 @tijjjy 的 https://github.com/tijjjy/Tailscale-DERP-Docker 修改的，他在博客 [Self Host Tailscale Derp Server](https://tijjjy.me/2023-01-22/Self-Host-Tailscale-Derp-Server) 给大家详细 walkthrough 了，建议阅读一下，非常容易理解。
