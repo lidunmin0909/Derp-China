@@ -31,6 +31,25 @@ docker-compose up -d
 ```
 curl http://127.0.0.1:444
 ```
+正常情况下 curl 以后会返回下面的内容：
+
+```html
+<html><body>
+<h1>DERP</h1>
+<p>
+  This is a
+  <a href="https://tailscale.com/">Tailscale</a>
+  <a href="https://pkg.go.dev/tailscale.com/derp">DERP</a>
+  server.
+</p>
+```
+可能会发现 tailscale.com 的 key 列表里刚刚申请的 key 并没有失效，说明容器没有成功登录至 tailscale。此时可以直接进入容器手动用 key 重新登录一下：
+```
+docker exec -it tailscale-derp /bin/sh
+```
+```
+tailscale login --auth-key="你的key"
+```
 ## 安装并配置 Nginx
 这里不一定用 Nginx，换别的 caddy 什么的也行。只要配置个反代转发到 `http://127.0.0.1:444` 就行。公网端口建议开不常见端口，比如我开的 442。
 
