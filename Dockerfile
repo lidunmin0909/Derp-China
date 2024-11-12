@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:20240606
 #Add a goproxy
 ENV GOPROXY "https://goproxy.cn"
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
@@ -10,7 +10,7 @@ RUN curl -fsSL "https://dl.google.com/go/go1.23.3.linux-amd64.tar.gz" -o go.tar.
     && tar -C /usr/local -xzf go.tar.gz \
     && rm go.tar.gz
 ENV PATH="/usr/local/go/bin:$PATH"
-RUN go install tailscale.com/cmd/derper@main
+RUN go install tailscale.com/cmd/derper@latest
 
 #Install Tailscale and Tailscaled
 RUN apk add tailscale
