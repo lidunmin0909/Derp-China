@@ -33,10 +33,7 @@ curl http://127.0.0.1:444
 <html><body>
 <h1>DERP</h1>
 <p>
-  This is a
-  <a href="https://tailscale.com/">Tailscale</a>
-  <a href="https://pkg.go.dev/tailscale.com/derp">DERP</a>
-  server.
+  This is a <a href="https://tailscale.com/">Tailscale</a> DERP server.
 </p>
 ```
 ## 安装配置 Nginx 为反向代理
@@ -45,7 +42,7 @@ curl http://127.0.0.1:444
 我的 Nginx 配置给你参考：
 
 ```
-# setup a upstream point to CodiMD server
+# setup a upstream point to Derp server
 upstream @derp {
     server 127.0.0.1:444;
     keepalive 300;
