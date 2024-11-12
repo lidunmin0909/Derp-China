@@ -14,12 +14,11 @@
 <img width="500" alt="image" src="https://github.com/S4kur4/Derp-China/assets/17521941/093b6608-9100-47b5-87d9-ac59f629d1b6">
 
 ## 修改配置
-修改 `.env` 文件里的参数，方便起见把 `TAILSCALE_DERP_HOSTNAME` 改成你自己的域名，然后把刚才记录下的 key 填进 `TAILSCALE_AUTH_KEY` 就行。
+修改 `.env` 文件里的参数，把 `TAILSCALE_DERP_HOSTNAME` 改成你自己的域名，然后把刚刚记录下的 key 填进 `TAILSCALE_AUTH_KEY`。
 
 ## 启动
-执行：
 ```
-git clone https://github.com/S4kur4/Derp-China.git && cd Derp-China && docker-compose up -d --build
+docker-compose up -d --build
 ```
 第一次因为要 build 镜像，速度应该不会很快，但也不至于太慢。
 容器启动后检查一下 Derp 服务是否在回环地址正常工作：
