@@ -2,6 +2,7 @@ version: '3'
 
 services:
    tailscale-derp:
+       build: .
        container_name: tailscale-derp
        image: derpinchina:latest
        hostname: ${TAILSCALE_DERP_HOSTNAME}
@@ -25,4 +26,3 @@ services:
        restart: unless-stopped
        devices:
          - /dev/net/tun:/dev/net/tun
-
