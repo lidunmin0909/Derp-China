@@ -1,28 +1,26 @@
-version: '3'
-
 services:
-   tailscale-derp:
-       build: .
-       container_name: tailscale-derp
-       image: derpinchina:latest
-       hostname: ${TAILSCALE_DERP_HOSTNAME}
-       volumes:
-         - /lib/modules:/lib/modules:ro
-         - $PWD/config:/var/lib/tailscale
-       cap_add:
-         - NET_ADMIN
-         - NET_RAW
-       environment:
-         - TAILSCALE_DERP_HOSTNAME=${TAILSCALE_DERP_HOSTNAME}
-         - TAILSCALE_DERP_ADDR=${TAILSCALE_DERP_ADDR}
-         - TAILSCALE_DERP_VERIFY_CLIENTS=${TAILSCALE_DERP_VERIFY_CLIENTS}
-         - TAILSCALE_DERP_STUN_PORT=${TAILSCALE_DERP_STUN_PORT}
-         - TAILSCALE_AUTH_KEY=${TAILSCALE_AUTH_KEY}
-       ports:
-         - 127.0.0.1:444:444/tcp
-         - 3478:3478/udp
-         #Uncomment only if you aren't running tailscaled on the host system otherwise it will error
-         #- 41641:41641/udp
-       restart: unless-stopped
-       devices:
-         - /dev/net/tun:/dev/net/tun
+  tailscale-derp:
+    build: .
+    container_name: tailscale-derp
+    image: derpinchina:latest
+    hostname: ${TAILSCALE_DERP_HOSTNAME}
+    volumes:
+      - /lib/modules:/lib/modules:ro
+      - $PWD/config:/var/lib/tailscale
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - TAILSCALE_DERP_HOSTNAME=${TAILSCALE_DERP_HOSTNAME}
+      - TAILSCALE_DERP_ADDR=${TAILSCALE_DERP_ADDR}
+      - TAILSCALE_DERP_VERIFY_CLIENTS=${TAILSCALE_DERP_VERIFY_CLIENTS}
+      - TAILSCALE_DERP_STUN_PORT=${TAILSCALE_DERP_STUN_PORT}
+      - TAILSCALE_AUTH_KEY=${TAILSCALE_AUTH_KEY}
+    ports:
+      - 127.0.0.1:444:444/tcp
+      - 3478:3478/udp
+      #Uncomment only if you aren't running tailscaled on the host system otherwise it will error
+      #- 41641:41641/udp
+    restart: always
+    devices:
+      - /dev/net/tun:/dev/net/tun
