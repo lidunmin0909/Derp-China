@@ -1,3 +1,4 @@
+#Can change to a dockerhub mirror site like: FROM docker.1ms.run/alpine:latest
 FROM alpine:latest
 #Add a goproxy
 ENV GOPROXY "https://goproxy.cn"
@@ -16,7 +17,7 @@ RUN APKARCH="$(apk --print-arch)" && \
         s390x) GOARCH=s390x ;; \
         *) echo "Unsupported architecture: ${APKARCH}" >&2; exit 1 ;; \
     esac && \
-    LATEST="$(curl -fsSL 'https://go.dev/VERSION?m=text'| head -n 1)" && \
+    LATEST="$(curl -fsSL 'https://golang.google.cn/VERSION?m=text'| head -n 1)" && \
     curl -fsSL "https://dl.google.com/go/${LATEST}.linux-${GOARCH}.tar.gz" -o go.tar.gz && \
     tar -C /usr/local -xzf go.tar.gz && \
     rm go.tar.gz
